@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "study-p2v"
+version = "0.2.0"
+description = "Structured educational videos with Manim, synchronized narration, and verified artifacts"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Study P2V contributors"}]
+keywords = ["manim", "animation", "storyboard", "education", "video"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: POSIX :: Linux",
+  "Topic :: Multimedia :: Video",
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "manim==0.21.0",
+  "fastapi==0.141.1",
+  "uvicorn==0.53.0",
+  "pydantic==2.12.5",
+  "matplotlib==3.10.8",
+  "psutil>=7,<8",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<0.29", "ruff>=0.12,<1"]
+
+[project.scripts]
+study-p2v = "study_p2v.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--basetemp=.cache/pytest-tmp"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/study_p2v"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src", "/tests", "/examples", "/scripts", "/docs", "/.github",
+  "/README.md", "/LICENSE", "/THIRD_PARTY.md", "/CONTRIBUTING.md", "/SECURITY.md",
+  "/AGENTS.md", "/pyproject.toml", "/uv.lock", "/Dockerfile", "/compose.yaml",
+  "/.env.example", "/.gitignore", "/.dockerignore", "/.gitattributes",
+]
+exclude = ["**/__pycache__", "**/*.pyc", "**/.DS_Store"]

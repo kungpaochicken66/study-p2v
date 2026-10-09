@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "theme": "midnight",
+  "output": {"width": 640, "height": 360, "fps": 15},
+  "segments": [
+    {"template": "title", "title": "Turn ideas into animation", "subtitle": "Structured content, clear explanations, verified video", "duration": 2},
+    {"template": "bullets", "title": "Explain first, then render", "items": ["One key point per segment", "Let visuals follow the narrative", "Edit one segment and reuse the rest"], "duration": 2},
+    {"template": "compare", "title": "Two ways to explain", "left": {"heading": "All at once", "items": ["Present all details together", "Repeat more work after edits"]}, "right": {"heading": "Step by step", "items": ["Follow the narration", "Reuse individual segments"]}, "duration": 2},
+    {"template": "bars", "title": "Sample data: three stages", "points": [{"label": "Understand", "value": 42}, {"label": "Practice", "value": 68}, {"label": "Apply", "value": 91}], "duration": 2},
+    {"template": "flow", "title": "From content to video", "steps": ["Content", "Scenes", "Render", "Verify"], "duration": 2},
+    {"template": "timeline", "title": "Learn step by step", "steps": ["Ask a question", "Explain the idea", "Give an example", "Review key points"], "duration": 2},
+    {"template": "equation", "title": "Understand each step", "steps": ["Distance = Speed × Time", "s = v × t", "120 = 60 × 2"], "duration": 2}
+  ]
+}

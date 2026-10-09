@@ -1,0 +1,28 @@
+services:
+  renderer:
+    build: .
+    ports:
+      - "127.0.0.1:8090:8090"
+    environment:
+      P2V_API_KEYS: ${P2V_API_KEYS:?Set P2V_API_KEYS in .env}
+      P2V_WORKERS: ${P2V_WORKERS:-2}
+      P2V_PER_NAMESPACE: ${P2V_PER_NAMESPACE:-1}
+      P2V_FFMPEG_THREADS: ${P2V_FFMPEG_THREADS:-2}
+      P2V_STAGE_TIMEOUT: ${P2V_STAGE_TIMEOUT:-180}
+      P2V_JOB_TIMEOUT: ${P2V_JOB_TIMEOUT:-1800}
+    volumes:
+      - render-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 4g
+    cpus: 4
+    stop_grace_period: 40s
+    restart: unless-stopped
+volumes:
+  render-data:

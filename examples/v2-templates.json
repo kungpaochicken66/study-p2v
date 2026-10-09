@@ -1,0 +1,245 @@
+{
+  "schema_version": 2,
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24
+  },
+  "segments": [
+    {
+      "template": "title",
+      "title": "Keep narration and visuals in sync",
+      "subtitle": "Structured content, verified output",
+      "duration": 3
+    },
+    {
+      "template": "bullets",
+      "title": "Three key actions",
+      "items": [
+        "Define the problem",
+        "Show the evidence",
+        "Verify the result"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "compare",
+      "title": "Choose a method for the task",
+      "left": {
+        "heading": "Structured rendering",
+        "items": [
+          "Control text and equations",
+          "Reuse identical inputs"
+        ]
+      },
+      "right": {
+        "heading": "Generated media",
+        "items": [
+          "Create images and short clips",
+          "Generate options as needed"
+        ]
+      },
+      "duration": 3
+    },
+    {
+      "template": "bars",
+      "title": "Compare work across stages",
+      "points": [
+        {
+          "label": "First render",
+          "value": 100
+        },
+        {
+          "label": "Partial edit",
+          "value": 45
+        },
+        {
+          "label": "Repeat request",
+          "value": 8
+        }
+      ],
+      "duration": 3
+    },
+    {
+      "template": "flow",
+      "title": "From input to usable output",
+      "steps": [
+        "Parse input",
+        "Render frames",
+        "Mix audio",
+        "Verify output"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "timeline",
+      "title": "Reveal the process step by step",
+      "steps": [
+        "Ask a question",
+        "Explain the method",
+        "Show an example",
+        "Review key points"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "equation",
+      "title": "Equations and matrices",
+      "math_steps": [
+        {
+          "kind": "row",
+          "parts": [
+            {
+              "kind": "symbol",
+              "value": "x ="
+            },
+            {
+              "kind": "fraction",
+              "parts": [
+                {
+                  "kind": "row",
+                  "parts": [
+                    {
+                      "kind": "symbol",
+                      "value": "-b ±"
+                    },
+                    {
+                      "kind": "root",
+                      "parts": [
+                        {
+                          "kind": "row",
+                          "parts": [
+                            {
+                              "kind": "sup",
+                              "parts": [
+                                {
+                                  "kind": "symbol",
+                                  "value": "b"
+                                },
+                                {
+                                  "kind": "symbol",
+                                  "value": "2"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "symbol",
+                              "value": "- 4ac"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "symbol",
+                  "value": "2a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "row",
+          "parts": [
+            {
+              "kind": "sub",
+              "parts": [
+                {
+                  "kind": "symbol",
+                  "value": "A"
+                },
+                {
+                  "kind": "symbol",
+                  "value": "ij"
+                }
+              ]
+            },
+            {
+              "kind": "symbol",
+              "value": "="
+            },
+            {
+              "kind": "matrix",
+              "rows": [
+                [
+                  {
+                    "kind": "symbol",
+                    "value": "1"
+                  },
+                  {
+                    "kind": "symbol",
+                    "value": "2"
+                  }
+                ],
+                [
+                  {
+                    "kind": "symbol",
+                    "value": "3"
+                  },
+                  {
+                    "kind": "symbol",
+                    "value": "4"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "duration": 3
+    },
+    {
+      "template": "definition",
+      "title": "Start with a shared concept",
+      "term": "Segment cache",
+      "body": "Reuse verified frames when the content and rendering settings are unchanged.",
+      "duration": 3
+    },
+    {
+      "template": "example",
+      "title": "Find the answer step by step",
+      "prompt": "One box holds three balls. How many balls are in two boxes?",
+      "steps": [
+        "Three balls per box, two boxes",
+        "3 × 2 = 6",
+        "Answer: six balls"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "cycle",
+      "title": "Verify every iteration",
+      "steps": [
+        "Observe",
+        "Hypothesize",
+        "Experiment",
+        "Review"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "checklist",
+      "title": "Check each deliverable",
+      "items": [
+        "Complete input",
+        "Correct visuals",
+        "Aligned audio and visuals",
+        "Readable output"
+      ],
+      "duration": 3
+    },
+    {
+      "template": "priority",
+      "title": "Start with the highest priority",
+      "items": [
+        "Make the content correct",
+        "Make the explanation clear",
+        "Reduce repeated computation",
+        "Scale using measured evidence"
+      ],
+      "duration": 3
+    }
+  ]
+}

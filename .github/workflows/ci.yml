@@ -1,0 +1,51 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      P2V_FONT: DejaVu Sans
+      P2V_REAL_TESTS: "1"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Set up uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.11.6"
+          enable-cache: true
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential pkg-config libcairo2-dev libpango1.0-dev \
+            ffmpeg fontconfig fonts-dejavu-core libgl1 libegl1
+      - name: Install Python and locked dependencies
+        run: |
+          uv python install 3.12.13
+          uv sync --locked --python 3.12.13
+      - name: Check runtime dependencies
+        run: uv run study-p2v doctor
+      - name: Lint and formatting
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Test including real media
+        run: uv run pytest -q
+      - name: Build source and wheel distributions
+        run: uv build
